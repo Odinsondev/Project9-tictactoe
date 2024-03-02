@@ -1,0 +1,84 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background1, white);
+}
+
+:root {
+  --background1: rgb(255, 255, 255);
+  --background2: rgb(255, 255, 255);
+  --text1: rgb(0, 0, 0);
+  --text2: rgb(0, 0, 0);
+  --text-footer: rgb(0, 0, 0);
+  /* font-size: 16px; */   /* Disables browser font size setting */
+}
+
+:root.light {
+  --background1: rgb(255, 255, 255);
+  --background2: rgb(255, 255, 255);
+  --text1: rgb(0, 0, 0);
+  --text2: rgb(0, 0, 0);
+  --text-footer: rgb(0, 0, 0);
+  /* font-size: 16px; */
+}
+
+:root.dark {
+  --background1: rgb(0, 0, 0);
+  --background2: rgb(0, 0, 0);
+  --text1: rgb(255, 255, 255);
+  --text2: rgb(255, 255, 255);
+  --text-footer: rgb(255, 255, 255);
+  /* font-size: 16px; */
+}
+
+body {
+  display: grid;
+  grid-template: 20vh 1fr 40vh 1fr 40px / 1fr 40vh 1fr;
+}
+
+header {
+  border: 1px solid red;
+
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content2 {
+  border: 1px solid red;
+
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.content2>div {
+  border: 1px solid red;
+}
+
+
+footer {
+  border: 1px solid red;
+
+  grid-column: 1 / 4;
+  grid-row: 5 / 6;
+
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--text-footer);
+/*   position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ */}
