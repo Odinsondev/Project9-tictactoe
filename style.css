@@ -62,6 +62,15 @@ header {
 
 .content2>div {
   border: 1px solid red;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content2>div>p {
+  margin: 0;
+  font-size: 3rem;
 }
 
 
