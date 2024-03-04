@@ -1,17 +1,15 @@
 const gameboard = {
-  board: [],
+  boardState: [],
   init: function() {
-    this.cacheDom();
+    this.addBoardToArray();
     this.bindEvents();
     this.render();
     this.test();
   },
-  cacheDom: function() {   ///can do without for loop but curious if it will work
-    let testCell
-    for (let i = 0; i<10; i++) {
-      testCell = document.getElementById(`cell${i}`);
-    }
-    return testCell;   ///difficult to return this variable with 9 values
+  addBoardToArray: function() {
+    for (let i = 0; i<9; i++) {
+      this.boardState[i] = document.getElementById(`cell${i}`).firstElementChild.textContent;
+    } 
   },
   bindEvents: function() {
     console.log("bindEvents")
@@ -20,7 +18,7 @@ const gameboard = {
     console.log("render")
   },
   test: function() {
-    console.log(this.cacheDom());
+    console.log(this.boardState);
   }
 }
 gameboard.init();
