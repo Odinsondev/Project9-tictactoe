@@ -73,6 +73,10 @@ header {
   font-size: 3rem;
 }
 
+.content2>div:hover {
+  background-color: rgb(211, 211, 226);
+}
+
 
 footer {
   border: 1px solid red;
