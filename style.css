@@ -8,8 +8,9 @@ body {
 }
 
 :root {
-  --background1: rgb(255, 255, 255);
-  --background2: rgb(255, 255, 255);
+  --background1: rgb(87, 87, 87);
+  --background2: rgb(100, 79, 54);
+  --background3: rgb(165, 213, 220);
   --text1: rgb(0, 0, 0);
   --text2: rgb(0, 0, 0);
   --text-footer: rgb(0, 0, 0);
@@ -48,9 +49,61 @@ header {
   font-size: 3rem;
   display: flex;
   justify-content: center;
+
+  background-color: var(--background2);
 }
 
+
+dialog {
+  background-color: var(--background2);
+}
+
+.modal-title-container {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-title {
+  font-weight: 500;
+}
+
+input {
+  margin-bottom: 5%;
+}
+
+label {
+  margin-bottom: 1%;
+}
+
+input,
+label {
+  display:block;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+
+ul {
+  margin: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+
 .content2 {
+  border: 1px solid red;
+
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.content3 {
   border: 1px solid red;
 
   display: grid;
@@ -60,7 +113,7 @@ header {
   grid-row: 3 / 4;
 }
 
-.content2>div {
+.content3>div {
   border: 1px solid red;
 
   display: flex;
@@ -68,12 +121,12 @@ header {
   align-items: center;
 }
 
-.content2>div>p {
+.content3>div>p {
   margin: 0;
   font-size: 3rem;
 }
 
-.content2>div:hover {
+.content3>div:hover {
   background-color: rgb(211, 211, 226);
 }
 

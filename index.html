@@ -15,8 +15,35 @@
     <p>Tic Tac Toe</p>
   </header>
 
-  <div class="content1"></div>
+  <div class="content1">
+    <dialog id="modal">
+      <div class="modal-title-container">
+        <p class="modal-title">New Game</p>
+      </div>
+      <form id="form" action="" method="get">
+        <ul>
+          <li>
+            <label for="player-one">Player x name:</label>
+            <input type="text" id="player-one" name="player-one" required/>
+          </li>
+          <li>
+            <label for="player-two">Player o name:</label>
+            <input type="text" id="player-two" name="player-two" required/>
+          </li>
+          <div class="modal-buttons">
+            <button id="start" type="button">Start</button>
+          </div>
+        </ul>
+      </form>
+    </dialog>
+  </div>
+
   <div class="content2">
+    <p id="player-names"></p>
+    <p id="player-turn"></p>
+  </div>
+
+  <div class="content3">
     <div id="cell0">
       <p></p>
     </div>
@@ -45,7 +72,6 @@
       <p></p>
     </div>
   </div>
-  <div class="content3"></div>
 
   <footer>
     <p>Copyright &copy; Odinsondev 2024</p>
