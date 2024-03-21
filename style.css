@@ -130,6 +130,24 @@ ul {
   background-color: rgb(211, 211, 226);
 }
 
+.content4 {
+  border: 1px solid red;
+
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}
+
+#modal2-container {
+  height: 100%;
+}
+
+#modal2 {
+  position: absolute;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
+
 
 footer {
   border: 1px solid red;

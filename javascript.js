@@ -1,6 +1,6 @@
 
 //Board module version 2 - the game board state is updated to array by players
-//and the board is rendered.
+//The board is then rendered.
 //This version is in line with the project instructions.
 
 const board = (function() {   //IIFE
@@ -159,97 +159,97 @@ const winner = (function() {
       board.gameBoard.boardState[1] === "x" &&
       board.gameBoard.boardState[2] === "x"
       ) {
-      console.log("Winner is X");
+      winnerDisplayModal.setWinnerX();
     } else if (
       board.gameBoard.boardState[3] === "x" &&
       board.gameBoard.boardState[4] === "x" &&
       board.gameBoard.boardState[5] === "x"
       ) {
-      console.log("Winner is X");
+      winnerDisplayModal.setWinnerX();
     } else if (
       board.gameBoard.boardState[6] === "x" &&
       board.gameBoard.boardState[7] === "x" &&
       board.gameBoard.boardState[8] === "x"
       ) {
-      console.log("Winner is X");
+      winnerDisplayModal.setWinnerX();
     } else if (                                  //vertical
       board.gameBoard.boardState[0] === "x" &&
       board.gameBoard.boardState[3] === "x" &&
       board.gameBoard.boardState[6] === "x"
       ) {
-      console.log("Winner is X");
+      winnerDisplayModal.setWinnerX();
     } else if (
       board.gameBoard.boardState[1] === "x" &&
       board.gameBoard.boardState[4] === "x" &&
       board.gameBoard.boardState[7] === "x"
       ) {
-      console.log("Winner is X");
+      winnerDisplayModal.setWinnerX();
     } else if (
       board.gameBoard.boardState[2] === "x" &&
       board.gameBoard.boardState[5] === "x" &&
       board.gameBoard.boardState[8] === "x"
       ) {
-        console.log("Winner is X");
+        winnerDisplayModal.setWinnerX();
     } else if (                                  //diagonal
       board.gameBoard.boardState[0] === "x" &&
       board.gameBoard.boardState[4] === "x" &&
       board.gameBoard.boardState[8] === "x"
       ) {
-      console.log("Winner is X");
+      winnerDisplayModal.setWinnerX();
     } else if (
       board.gameBoard.boardState[2] === "x" &&
       board.gameBoard.boardState[4] === "x" &&
       board.gameBoard.boardState[6] === "x"
       ) {
-      console.log("Winner is X");
+      winnerDisplayModal.setWinnerX();
     } else if (                                  //horizontal
       board.gameBoard.boardState[0] === "o" &&
       board.gameBoard.boardState[1] === "o" &&
       board.gameBoard.boardState[2] === "o"
       ) {
-      console.log("Winner is O");
+      winnerDisplayModal.setWinnerO();
     } else if (
       board.gameBoard.boardState[3] === "o" &&
       board.gameBoard.boardState[4] === "o" &&
       board.gameBoard.boardState[5] === "o"
       ) {
-      console.log("Winner is O");
+      winnerDisplayModal.setWinnerO();
     } else if (
       board.gameBoard.boardState[6] === "o" &&
       board.gameBoard.boardState[7] === "o" &&
       board.gameBoard.boardState[8] === "o"
       ) {
-      console.log("Winner is O");
+      winnerDisplayModal.setWinnerO();
     } else if (                                  //vertical
       board.gameBoard.boardState[0] === "o" &&
       board.gameBoard.boardState[3] === "o" &&
       board.gameBoard.boardState[6] === "o"
       ) {
-      console.log("Winner is O");
+      winnerDisplayModal.setWinnerO();
     } else if (
       board.gameBoard.boardState[1] === "o" &&
       board.gameBoard.boardState[4] === "o" &&
       board.gameBoard.boardState[7] === "o"
       ) {
-      console.log("Winner is O");
+      winnerDisplayModal.setWinnerO();
     } else if (
       board.gameBoard.boardState[2] === "o" &&
       board.gameBoard.boardState[5] === "o" &&
       board.gameBoard.boardState[8] === "o"
       ) {
-      console.log("Winner is O");
+      winnerDisplayModal.setWinnerO();
     } else if (                                  //diagonal
       board.gameBoard.boardState[0] === "o" &&
       board.gameBoard.boardState[4] === "o" &&
       board.gameBoard.boardState[8] === "o"
       ) {
-      console.log("Winner is O");
+      winnerDisplayModal.setWinnerO();
     } else if (
       board.gameBoard.boardState[2] === "o" &&
       board.gameBoard.boardState[4] === "o" &&
       board.gameBoard.boardState[6] === "o"
       ) {
-      console.log("Winner is O");
+      winnerDisplayModal.setWinnerO();
     } else {}
   }
 
@@ -319,10 +319,64 @@ const turnDisplay = (function() {
     } else {}
   }
 
-  return {render}
+  return {render, nextPlayer}
 })();
 
+
+//IIFE module to display the winner and restart the game
+
+const winnerDisplayModal = (function() {
+
+  //cache DOM
+  const winnerName = document.getElementById("winner-name");
+  const modal2 = document.getElementById('modal2');
+  const modal2Container = document.getElementById("modal2-container");
+  const restartButton = document.getElementById("restart");
+
+  //bind events
+  restartButton.addEventListener('click', restartGame);
+
+  //variables
+  let winner = "";
+
+  //functions
+  function setWinnerX() {
+    winner = one.playerOne.name;
+    winnerName.textContent = winner + " has won this round";
+    turnDisplay.nextPlayer.textContent = "Game over";  //displays then overwritten
+    console.log(turnDisplay.nextPlayer.textContent);
+    openModal();
+  }
+
+  function setWinnerO() {
+    winner = two.playerTwo.name;
+    winnerName.textContent = winner + " has won this round";
+    openModal();
+  }
+
+  function openModal() {
+    modal2.showModal();
+    modal2.style.left = modal2Container.offsetLeft + "px";
+    modal2.style.top = modal2Container.offsetTop + "px";
+    modal2.style.width = (modal2Container.offsetWidth - 38.8) + "px";
+    modal2.style.height = (modal2Container.offsetHeight - 38.8) + "px";
+  }
+
+  function restartGame() {   //currently restarts with same player names
+    modal2.close();
+    one.playerOne.nextPlayer = "One";
+    two.playerTwo.nextPlayer = "One";
+    turnDisplay.render();
+    board.gameBoard.addEmptyBoardToArray();
+    board.gameBoard.render();
+    winner = "";
+  }
+
+  return {setWinnerX, setWinnerO}
+})();
 
 //////////////////////////////
 
 //can i return only one function from an object???
+
+/////add game over textcontent to next player
