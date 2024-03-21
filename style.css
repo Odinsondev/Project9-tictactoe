@@ -8,10 +8,10 @@ body {
 }
 
 :root {
-  --background1: rgb(87, 87, 87);
-  --background2: rgb(100, 79, 54);
-  --background3: rgb(165, 213, 220);
-  --text1: rgb(0, 0, 0);
+  --background1: rgb(83, 82, 82);
+  --background2: rgb(110, 86, 57);
+  --background3: rgb(158, 200, 207);
+  --text1: rgb(230, 232, 208);
   --text2: rgb(0, 0, 0);
   --text-footer: rgb(0, 0, 0);
   /* font-size: 16px; */   /* Disables browser font size setting */
@@ -37,12 +37,10 @@ body {
 
 body {
   display: grid;
-  grid-template: 20vh 1fr 40vh 1fr 40px / 1fr 40vh 1fr;
+  grid-template: 20vh 1fr 44vh 1fr 40px / 1fr 44vh 1fr;
 }
 
 header {
-  border: 1px solid red;
-
   grid-column: 1 / 4;
   grid-row: 1 / 2;
 
@@ -50,12 +48,20 @@ header {
   display: flex;
   justify-content: center;
 
-  background-color: var(--background2);
+  background-color: var(--background1);
+  color: var(--text1);
 }
 
+#modal {
+  margin: 0;
+  left: 0;
+  top: 0;
+}
 
 dialog {
   background-color: var(--background2);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px;
 }
 
 .modal-title-container {
@@ -97,28 +103,44 @@ ul {
 
 
 .content2 {
-  border: 1px solid red;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr;
 
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+
+  color: var(--text1);
+}
+
+.content2>p {
+  display: flex;
+  justify-self: center;
+
+  margin: 0.5rem 0 0.5rem 0;
 }
 
 .content3 {
-  border: 1px solid red;
-
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
 
   grid-column: 2 / 3;
   grid-row: 3 / 4;
+
+  background-color: var(--background2);
+  padding: 5%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px;
 }
 
 .content3>div {
-  border: 1px solid red;
-
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: var(--background3);
+  margin: 5%;
+  border-radius: 5px;
+  box-shadow: inset 3px 3px 5px;
 }
 
 .content3>div>p {
@@ -127,12 +149,10 @@ ul {
 }
 
 .content3>div:hover {
-  background-color: rgb(211, 211, 226);
+  background-color: rgb(184, 223, 230);
 }
 
 .content4 {
-  border: 1px solid red;
-
   grid-column: 2 / 3;
   grid-row: 4 / 5;
 }
@@ -148,10 +168,11 @@ ul {
   top: 0;
 }
 
+#winner-name {
+  margin: 0 0 1rem 0;
+}
 
 footer {
-  border: 1px solid red;
-
   grid-column: 1 / 4;
   grid-row: 5 / 6;
 
@@ -160,9 +181,5 @@ footer {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  color: var(--text-footer);
-/*   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
- */}
+  color: var(--text1);
+}
