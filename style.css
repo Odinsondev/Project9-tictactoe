@@ -44,24 +44,25 @@ header {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
 
-  font-size: 3rem;
+  font-size: 4rem;
   display: flex;
   justify-content: center;
 
   background-color: var(--background1);
   color: var(--text1);
-}
-
-#modal {
-  margin: 0;
-  left: 0;
-  top: 0;
+  font-family: 'freckle Face';
 }
 
 dialog {
   background-color: var(--background2);
   border-radius: 10px;
   box-shadow: 3px 3px 5px;
+}
+
+#modal {
+  margin: 0;
+  left: 0;
+  top: 0;
 }
 
 .modal-title-container {
@@ -73,16 +74,16 @@ dialog {
   font-weight: 500;
 }
 
-input {
+label {
   margin-bottom: 5%;
 }
 
-label {
-  margin-bottom: 1%;
+input {
+  margin-bottom: 10%;
 }
 
-input,
-label {
+label,
+input {
   display:block;
 }
 
@@ -99,6 +100,18 @@ ul {
 .modal-buttons {
   display: flex;
   justify-content: center;
+}
+
+#start {
+  margin-top: 4%;
+  height: 5vh;
+  width: 10vh;
+  border-radius: 5px;
+  border-style: none;
+}
+
+#start:hover {
+  background-color: rgb(224, 211, 192);
 }
 
 
@@ -146,6 +159,7 @@ ul {
 .content3>div>p {
   margin: 0;
   font-size: 3rem;
+  font-family: 'freckle Face';
 }
 
 .content3>div:hover {
@@ -168,9 +182,36 @@ ul {
   top: 0;
 }
 
+.winner-name-container {
+  display: flex;
+  justify-content: center;
+}
+
 #winner-name {
   margin: 0 0 1rem 0;
 }
+
+.restart-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#next-round {
+  border-style: none;
+}
+
+#next-round:hover {
+  background-color: rgb(224, 211, 192);
+}
+
+#new-game {
+  border-style: none;
+}
+
+#new-game:hover {
+  background-color: rgb(224, 211, 192);
+}
+
 
 footer {
   grid-column: 1 / 4;

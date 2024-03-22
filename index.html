@@ -6,13 +6,14 @@
   <title>Tic Tac Toe</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap">
   <link rel="stylesheet" href="./normalize.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <header>
-    <p>Tic Tac Toe</p>
+    <p>Noughts and Crosses</p>
   </header>
 
   <div class="content1">
@@ -41,6 +42,7 @@
   <div class="content2">
     <p id="player-names"></p>
     <p id="player-turn"></p>
+    <p id="score"></p>
   </div>
 
   <div id="c3" class="content3">
@@ -76,8 +78,13 @@
   <div class="content4">
     <div id="modal2-container">
       <dialog id="modal2">
-        <p id="winner-name"></p>
-        <button id="restart" type="button">Restart</button>
+        <div class="winner-name-container">
+          <p id="winner-name"></p>
+        </div>
+        <div class="restart-container">
+          <button id="next-round" type="button">Next Round</button>
+          <button id="new-game" type="button">New Game</button>
+        </div>
       </dialog>
     </div>
   </div>

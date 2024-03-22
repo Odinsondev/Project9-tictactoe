@@ -165,6 +165,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerX();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointX();
     } else if (
       board.gameBoard.boardState[3] === "x" &&
       board.gameBoard.boardState[4] === "x" &&
@@ -173,6 +174,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerX();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointX();
     } else if (
       board.gameBoard.boardState[6] === "x" &&
       board.gameBoard.boardState[7] === "x" &&
@@ -181,6 +183,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerX();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointX();
     } else if (                                  //vertical
       board.gameBoard.boardState[0] === "x" &&
       board.gameBoard.boardState[3] === "x" &&
@@ -189,6 +192,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerX();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointX();
     } else if (
       board.gameBoard.boardState[1] === "x" &&
       board.gameBoard.boardState[4] === "x" &&
@@ -197,6 +201,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerX();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointX();
     } else if (
       board.gameBoard.boardState[2] === "x" &&
       board.gameBoard.boardState[5] === "x" &&
@@ -205,6 +210,7 @@ const winner = (function() {
         winnerDisplayModal.setWinnerX();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointX();
     } else if (                                  //diagonal
       board.gameBoard.boardState[0] === "x" &&
       board.gameBoard.boardState[4] === "x" &&
@@ -213,6 +219,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerX();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointX();
     } else if (
       board.gameBoard.boardState[2] === "x" &&
       board.gameBoard.boardState[4] === "x" &&
@@ -221,6 +228,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerX();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointX();
     } else if (                                  //horizontal
       board.gameBoard.boardState[0] === "o" &&
       board.gameBoard.boardState[1] === "o" &&
@@ -229,6 +237,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerO();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointO();
     } else if (
       board.gameBoard.boardState[3] === "o" &&
       board.gameBoard.boardState[4] === "o" &&
@@ -237,6 +246,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerO();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointO();
     } else if (
       board.gameBoard.boardState[6] === "o" &&
       board.gameBoard.boardState[7] === "o" &&
@@ -245,6 +255,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerO();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointO();
     } else if (                                  //vertical
       board.gameBoard.boardState[0] === "o" &&
       board.gameBoard.boardState[3] === "o" &&
@@ -253,6 +264,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerO();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointO();
     } else if (
       board.gameBoard.boardState[1] === "o" &&
       board.gameBoard.boardState[4] === "o" &&
@@ -261,6 +273,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerO();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointO();
     } else if (
       board.gameBoard.boardState[2] === "o" &&
       board.gameBoard.boardState[5] === "o" &&
@@ -269,6 +282,7 @@ const winner = (function() {
       winnerDisplayModal.setWinnerO();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointO();
     } else if (                                  //diagonal
       board.gameBoard.boardState[0] === "o" &&
       board.gameBoard.boardState[4] === "o" &&
@@ -277,12 +291,28 @@ const winner = (function() {
       winnerDisplayModal.setWinnerO();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointO();
     } else if (
       board.gameBoard.boardState[2] === "o" &&
       board.gameBoard.boardState[4] === "o" &&
       board.gameBoard.boardState[6] === "o"
       ) {
       winnerDisplayModal.setWinnerO();
+      one.playerOne.nextPlayer = "None";
+      two.playerTwo.nextPlayer = "None";
+      scoreCounter.addPointO();
+    } else if (
+      board.gameBoard.boardState[0] !== "" &&
+      board.gameBoard.boardState[1] !== "" &&
+      board.gameBoard.boardState[2] !== "" &&
+      board.gameBoard.boardState[3] !== "" &&
+      board.gameBoard.boardState[4] !== "" &&
+      board.gameBoard.boardState[5] !== "" &&
+      board.gameBoard.boardState[6] !== "" &&
+      board.gameBoard.boardState[7] !== "" &&
+      board.gameBoard.boardState[8] !== ""
+      ) {
+      winnerDisplayModal.setWinnerTie();
       one.playerOne.nextPlayer = "None";
       two.playerTwo.nextPlayer = "None";
     } else {}
@@ -374,10 +404,12 @@ const winnerDisplayModal = (function() {
   const winnerName = document.getElementById("winner-name");
   const modal2 = document.getElementById('modal2');
   const modal2Container = document.getElementById("modal2-container");
-  const restartButton = document.getElementById("restart");
+  const nextRoundButton = document.getElementById("next-round");
+  const newGameButton = document.getElementById("new-game");
 
   //bind events
-  restartButton.addEventListener('click', restartGame);
+  nextRoundButton.addEventListener('click', restartGame);
+  newGameButton.addEventListener('click', reloadPage);
 
   //variables
   let winner = "";
@@ -392,6 +424,11 @@ const winnerDisplayModal = (function() {
   function setWinnerO() {
     winner = two.playerTwo.name;
     winnerName.textContent = winner + " has won this round";
+    openModal();
+  }
+
+  function setWinnerTie() {
+    winnerName.textContent = "It's a tie";
     openModal();
   }
 
@@ -413,9 +450,40 @@ const winnerDisplayModal = (function() {
     winner = "";
   }
 
-  return {setWinnerX, setWinnerO}
+  function reloadPage() {
+    location.reload();
+  }
+
+  return {setWinnerX, setWinnerO, setWinnerTie}
 })();
 
 //////////////////////////////
 
-//Add tie message
+const scoreCounter = (function() {
+
+  //cache DOM
+  const scoreDisplay = document.getElementById('score');
+
+  //variables
+  let playerOneScore = 0;
+  let playerTwoScore = 0;
+
+  //functions
+  function addPointX() {
+    playerOneScore = playerOneScore + 1;
+    render();
+  }
+
+  function addPointO() {
+    playerTwoScore = playerTwoScore + 1;
+    render();
+  }
+
+  function render() {
+    scoreDisplay.textContent = playerOneScore + " : " + playerTwoScore;
+  }
+
+  return {addPointX, addPointO}
+})();
+
+/////////add light theme
