@@ -32,7 +32,7 @@ const board = (function() {   //IIFE
   return {gameBoard}   //returning the whole object so nothing private
 })();
 
-/////////////////////
+//Player One - object literal in IIFE
 
 const one = (function() {
 
@@ -68,7 +68,7 @@ const one = (function() {
   return {playerOne}   //returning the whole object so nothing private
 })();
 
-//////////////////////////////
+//Player Two - object literal in IIFE
 
 const two = (function() {
 
@@ -105,7 +105,7 @@ const two = (function() {
 return {playerTwo}   //returning the whole object so nothing private
 })();
 
-//////////////////////////////
+//Player turn order - object literal in IIFE
 
 const order = (function() {
 
@@ -149,7 +149,7 @@ const order = (function() {
 
 })();
 
-//////////////////////////////
+//Winner or tie check - IIFE
 
 const winner = (function() {
 
@@ -322,8 +322,7 @@ const winner = (function() {
   return {checkWinner}
 })();
 
-
-//IIFE module for modal to enter player names
+//Modal to enter player names and start game - IIFE
 
 const startGameModal = (function() {
   function init() {
@@ -371,8 +370,7 @@ const startGameModal = (function() {
   init();
 })();
 
-
-//IIFE module to display player names and next turn
+//Display for player names and next turn - IIFE
 
 const turnDisplay = (function() {
 
@@ -395,8 +393,7 @@ const turnDisplay = (function() {
   return {render, nextPlayer}
 })();
 
-
-//IIFE module to display the winner and restart the game
+//Modal to display the winner and restart the game - IIFE
 
 const winnerDisplayModal = (function() {
 
@@ -457,7 +454,7 @@ const winnerDisplayModal = (function() {
   return {setWinnerX, setWinnerO, setWinnerTie}
 })();
 
-//////////////////////////////
+//Score counter and display - IIFE
 
 const scoreCounter = (function() {
 
@@ -486,4 +483,24 @@ const scoreCounter = (function() {
   return {addPointX, addPointO}
 })();
 
-/////////add light theme
+//Theme selector - - IIFE
+
+const changeTheme = (function() {
+
+  //cache DOM
+  const root = document.querySelector(':root');
+  const changeThemeButton = document.getElementById('theme');
+
+  //bind events
+  changeThemeButton.addEventListener('click', changeTheme);
+
+  //functions
+  function changeTheme() {
+    if (root.classList.contains('light')) {
+      root.classList.remove('light');
+    } else {
+      root.classList.add('light');
+    }
+  }
+
+})();

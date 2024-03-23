@@ -11,6 +11,7 @@ body {
   --background1: rgb(83, 82, 82);
   --background2: rgb(110, 86, 57);
   --background3: rgb(158, 200, 207);
+  --color1: rgb(184, 223, 230);
   --text1: rgb(230, 232, 208);
   --text2: rgb(0, 0, 0);
   --text-footer: rgb(0, 0, 0);
@@ -18,20 +19,13 @@ body {
 }
 
 :root.light {
-  --background1: rgb(255, 255, 255);
-  --background2: rgb(255, 255, 255);
-  --text1: rgb(0, 0, 0);
+  --background1: rgb(149, 181, 181);
+  --background2: rgb(175, 97, 64);
+  --background3: rgb(240, 240, 223);
+  --color1: rgb(255, 255, 255);
+  --text1: rgb(56, 26, 12);
   --text2: rgb(0, 0, 0);
   --text-footer: rgb(0, 0, 0);
-  /* font-size: 16px; */
-}
-
-:root.dark {
-  --background1: rgb(0, 0, 0);
-  --background2: rgb(0, 0, 0);
-  --text1: rgb(255, 255, 255);
-  --text2: rgb(255, 255, 255);
-  --text-footer: rgb(255, 255, 255);
   /* font-size: 16px; */
 }
 
@@ -40,18 +34,53 @@ body {
   grid-template: 20vh 1fr 44vh 1fr 40px / 1fr 44vh 1fr;
 }
 
+
+/* Header */
+
 header {
+  display: grid;
+  grid-template-rows: 40px 1fr;
+
   grid-column: 1 / 4;
   grid-row: 1 / 2;
+}
 
-  font-size: 4rem;
+.header-top {
+  display: flex;
+  justify-content: end;
+
+  grid-row: 1 / 2;
+}
+
+#theme {
+  margin: 1vh;
+  border-style: none;
+  background-color: var(--background3);
+  border-radius: 3px;
+}
+
+#theme:hover {
+  background-color: var(--color1);
+}
+
+.header-bottom {
   display: flex;
   justify-content: center;
+  align-items: center;
 
+  grid-row: 2 / 3;
+}
+
+header>div>p {
+  font-size: 4rem;
+  margin: 0;
   background-color: var(--background1);
   color: var(--text1);
   font-family: 'freckle Face';
 }
+
+
+/* Start game modal */
 
 dialog {
   background-color: var(--background2);
@@ -80,6 +109,7 @@ label {
 
 input {
   margin-bottom: 10%;
+  width: 97%;
 }
 
 label,
@@ -115,6 +145,8 @@ ul {
 }
 
 
+/* Player names and turn display */
+
 .content2 {
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr;
@@ -131,6 +163,9 @@ ul {
 
   margin: 0.5rem 0 0.5rem 0;
 }
+
+
+/* Gameboard */
 
 .content3 {
   display: grid;
@@ -163,8 +198,11 @@ ul {
 }
 
 .content3>div:hover {
-  background-color: rgb(184, 223, 230);
+  background-color: var(--color1);
 }
+
+
+/* Winner display and reset game modal */
 
 .content4 {
   grid-column: 2 / 3;
@@ -198,6 +236,7 @@ ul {
 
 #next-round {
   border-style: none;
+  border-radius: 3px;
 }
 
 #next-round:hover {
@@ -206,12 +245,15 @@ ul {
 
 #new-game {
   border-style: none;
+  border-radius: 3px;
 }
 
 #new-game:hover {
   background-color: rgb(224, 211, 192);
 }
 
+
+/* footer */
 
 footer {
   grid-column: 1 / 4;
